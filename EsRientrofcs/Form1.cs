@@ -164,8 +164,100 @@ namespace EsRientrofcs
                 listView1.Items.Add(Item);
                 j++;
             }
-            Console.WriteLine("Clicca un tasto per continuare...");
-            Console.ReadLine();
+        }
+
+        private void mod_Click(object sender, EventArgs e)
+        {
+            LibreriaCS l = new LibreriaCS();
+            string ricerca = Interaction.InputBox("Inserisci il termine che vuoi modificare");
+            string modifica = Interaction.InputBox("Inserisci la modifica");
+            MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
+                        "\n0. Comune" +
+                        "\n1. Provincia" +
+                        "\n2. Regione" +
+                        "\n3. Tipologia" +
+                        "\n4. Categoria(Stelle)" +
+                        "\n5. Denominazione" +
+                        "\n6. Indirizzo" +
+                        "\n7. CAP" +
+                        "\n8. Località" +
+                        "\n9. Frazione" +
+                        "\n10. Telefono" +
+                        "\n11. FAX" +
+                        "\n12. Indirizzo Posta Elettronica" +
+                        "\n13. Sito Internet" +
+                        "\n14. Codice esercizio" +
+                        "\n15. Camere" +
+                        "\n16. Posti letto standard" +
+                        "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+            int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
+            l.ModificaCampo(campo, ricerca, modifica);
+            MessageBox.Show("Operazione Completata", "Avviso");
+        }
+
+        private void canclogica_Click(object sender, EventArgs e)
+        {
+            bool cor = false;
+            LibreriaCS l = new LibreriaCS();
+            string ricerca = Interaction.InputBox("Inserisci il termine che vuoi cancellare logicamente");
+            MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
+                        "\n0. Comune" +
+                        "\n1. Provincia" +
+                        "\n2. Regione" +
+                        "\n3. Tipologia" +
+                        "\n4. Categoria(Stelle)" +
+                        "\n5. Denominazione" +
+                        "\n6. Indirizzo" +
+                        "\n7. CAP" +
+                        "\n8. Località" +
+                        "\n9. Frazione" +
+                        "\n10. Telefono" +
+                        "\n11. FAX" +
+                        "\n12. Indirizzo Posta Elettronica" +
+                        "\n13. Sito Internet" +
+                        "\n14. Codice esercizio" +
+                        "\n15. Camere" +
+                        "\n16. Posti letto standard" +
+                        "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+            int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
+            l.CancRecLogica(campo, ricerca, cor);
+            MessageBox.Show("Operazione completata", "Avviso");
+        }
+
+        private void reclogico_Click(object sender, EventArgs e)
+        {
+            bool cor = true;
+            LibreriaCS l = new LibreriaCS();
+            string ricerca = Interaction.InputBox("Inserisci il termine che vuoi cancellare logicamente");
+            MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
+                        "\n0. Comune" +
+                        "\n1. Provincia" +
+                        "\n2. Regione" +
+                        "\n3. Tipologia" +
+                        "\n4. Categoria(Stelle)" +
+                        "\n5. Denominazione" +
+                        "\n6. Indirizzo" +
+                        "\n7. CAP" +
+                        "\n8. Località" +
+                        "\n9. Frazione" +
+                        "\n10. Telefono" +
+                        "\n11. FAX" +
+                        "\n12. Indirizzo Posta Elettronica" +
+                        "\n13. Sito Internet" +
+                        "\n14. Codice esercizio" +
+                        "\n15. Camere" +
+                        "\n16. Posti letto standard" +
+                        "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+            int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
+            l.CancRecLogica(campo, ricerca, cor);
+            MessageBox.Show("Operazione completata", "Avviso");
+        }
+
+        private void ricompattafile_Click(object sender, EventArgs e)
+        {
+            LibreriaCS l = new LibreriaCS();
+            l.Ricompatta();
+            MessageBox.Show("Operazione completata", "Avviso");
         }
     }
 }

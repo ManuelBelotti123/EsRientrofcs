@@ -54,6 +54,10 @@
             this.pls = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pla = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ricercare = new System.Windows.Forms.Button();
+            this.mod = new System.Windows.Forms.Button();
+            this.canclogica = new System.Windows.Forms.Button();
+            this.reclogico = new System.Windows.Forms.Button();
+            this.ricompattafile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -227,11 +231,55 @@
             this.ricercare.UseVisualStyleBackColor = true;
             this.ricercare.Click += new System.EventHandler(this.ricercare_Click);
             // 
+            // mod
+            // 
+            this.mod.Location = new System.Drawing.Point(18, 227);
+            this.mod.Name = "mod";
+            this.mod.Size = new System.Drawing.Size(130, 23);
+            this.mod.TabIndex = 8;
+            this.mod.Text = "Modifica";
+            this.mod.UseVisualStyleBackColor = true;
+            this.mod.Click += new System.EventHandler(this.mod_Click);
+            // 
+            // canclogica
+            // 
+            this.canclogica.Location = new System.Drawing.Point(18, 257);
+            this.canclogica.Name = "canclogica";
+            this.canclogica.Size = new System.Drawing.Size(130, 23);
+            this.canclogica.TabIndex = 9;
+            this.canclogica.Text = "Canc Logica";
+            this.canclogica.UseVisualStyleBackColor = true;
+            this.canclogica.Click += new System.EventHandler(this.canclogica_Click);
+            // 
+            // reclogico
+            // 
+            this.reclogico.Location = new System.Drawing.Point(18, 286);
+            this.reclogico.Name = "reclogico";
+            this.reclogico.Size = new System.Drawing.Size(130, 23);
+            this.reclogico.TabIndex = 10;
+            this.reclogico.Text = "Recupero Logico";
+            this.reclogico.UseVisualStyleBackColor = true;
+            this.reclogico.Click += new System.EventHandler(this.reclogico_Click);
+            // 
+            // ricompattafile
+            // 
+            this.ricompattafile.Location = new System.Drawing.Point(18, 315);
+            this.ricompattafile.Name = "ricompattafile";
+            this.ricompattafile.Size = new System.Drawing.Size(130, 23);
+            this.ricompattafile.TabIndex = 11;
+            this.ricompattafile.Text = "Ricompatta";
+            this.ricompattafile.UseVisualStyleBackColor = true;
+            this.ricompattafile.Click += new System.EventHandler(this.ricompattafile_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ricompattafile);
+            this.Controls.Add(this.reclogico);
+            this.Controls.Add(this.canclogica);
+            this.Controls.Add(this.mod);
             this.Controls.Add(this.ricercare);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.VisCampi);
@@ -276,6 +324,10 @@
         private System.Windows.Forms.ColumnHeader pls;
         private System.Windows.Forms.ColumnHeader pla;
         private System.Windows.Forms.Button ricercare;
+        private System.Windows.Forms.Button mod;
+        private System.Windows.Forms.Button canclogica;
+        private System.Windows.Forms.Button reclogico;
+        private System.Windows.Forms.Button ricompattafile;
     }
 }
 
