@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using libreriaCS;
+using System.IO;
 
 namespace EsRientrofcs
 {
@@ -17,7 +18,7 @@ namespace EsRientrofcs
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -80,9 +81,11 @@ namespace EsRientrofcs
 
         private void VisCampi_Click(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
             LibreriaCS l = new LibreriaCS();
             int[] cvis = new int[3];
-            Interaction.InputBox("0. Comune" +
+            MessageBox.Show("Scegli tre di questi campi, indicandone il numero corrispondente" +
+                "\n0. Comune" +
                 "\n1. Provincia" +
                 "\n2. Regione" +
                 "\n3. Tipologia" +
@@ -99,21 +102,70 @@ namespace EsRientrofcs
                 "\n14. Codice esercizio" +
                 "\n15. Camere" +
                 "\n16. Posti letto standard" +
-                "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi");
-           /* for (int i = 0; i < cvis.Length; i++)
+                "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+            for (int i = 0; i < cvis.Length; i++)
             {
-                "Inserisci il numero:");
-                cvis[i] = int.Parse(Console.ReadLine());
+                cvis[i] = int.Parse(Interaction.InputBox("Inserisci il numero:"));
             }
             string[] arr = l.EstrapolaCampi(cvis[0], cvis[1], cvis[2]);
             int j = 0;
             while (arr[j] != null)
             {
-                arr[j]);
+                ListViewItem Item = new ListViewItem();
+                string[] div = arr[j].Split(';');
+                if (j != 0)
+                {
+                    Item.Text = div[0];
+                    for (int i = 1; i < l.ContaCampi(); i++)
+                    {
+                        Item.SubItems.Add(div[i]);
+                    }
+                    listView1.Items.Add(Item);
+                }
                 j++;
             }
-            "Clicca un tasto per continuare...");
-            Console.ReadLine();*/
+        }
+
+        private void ricercare_Click(object sender, EventArgs e)
+        {
+            LibreriaCS l = new LibreriaCS();
+            string ricerca = Interaction.InputBox("Inserisci il termine che vuoi ricercare");
+            MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
+                        "\n0. Comune" +
+                        "\n1. Provincia" +
+                        "\n2. Regione" +
+                        "\n3. Tipologia" +
+                        "\n4. Categoria(Stelle)" +
+                        "\n5. Denominazione" +
+                        "\n6. Indirizzo" +
+                        "\n7. CAP" +
+                        "\n8. Località" +
+                        "\n9. Frazione" +
+                        "\n10. Telefono" +
+                        "\n11. FAX" +
+                        "\n12. Indirizzo Posta Elettronica" +
+                        "\n13. Sito Internet" +
+                        "\n14. Codice esercizio" +
+                        "\n15. Camere" +
+                        "\n16. Posti letto standard" +
+                        "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+            int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
+            string[] ric = l.Ricerca(campo, ricerca);
+            int j = 0;
+            while (ric[j] != null)
+            {
+                ListViewItem Item = new ListViewItem();
+                string[] div = ric[j].Split(';');
+                Item.Text = div[0];
+                for (int i = 1; i < div.Length; i++)
+                {
+                    Item.SubItems.Add(div[i]);
+                }
+                listView1.Items.Add(Item);
+                j++;
+            }
+            Console.WriteLine("Clicca un tasto per continuare...");
+            Console.ReadLine();
         }
     }
 }

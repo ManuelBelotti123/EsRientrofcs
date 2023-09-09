@@ -35,6 +35,25 @@
             this.AggRecord = new System.Windows.Forms.Button();
             this.VisCampi = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.comune = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.provincia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.regione = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tipologia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.categoria = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.denominazione = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.indirizzo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.localita = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.frazione = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.telefono = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.fax = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.indposel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.web = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ces = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.camere = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pls = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pla = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ricercare = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -99,18 +118,121 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.comune,
+            this.provincia,
+            this.regione,
+            this.tipologia,
+            this.categoria,
+            this.denominazione,
+            this.indirizzo,
+            this.cap,
+            this.localita,
+            this.frazione,
+            this.telefono,
+            this.fax,
+            this.indposel,
+            this.web,
+            this.ces,
+            this.camere,
+            this.pls,
+            this.pla});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(184, 63);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(595, 362);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // comune
+            // 
+            this.comune.Text = "Comune";
+            // 
+            // provincia
+            // 
+            this.provincia.Text = "Provincia";
+            // 
+            // regione
+            // 
+            this.regione.Text = "Regione";
+            // 
+            // tipologia
+            // 
+            this.tipologia.Text = "Tipologia";
+            // 
+            // categoria
+            // 
+            this.categoria.Text = "Categoria";
+            // 
+            // denominazione
+            // 
+            this.denominazione.Text = "Denominazione";
+            // 
+            // indirizzo
+            // 
+            this.indirizzo.Text = "Indirizzo";
+            // 
+            // cap
+            // 
+            this.cap.Text = "CAP";
+            // 
+            // localita
+            // 
+            this.localita.Text = "Località";
+            // 
+            // frazione
+            // 
+            this.frazione.Text = "Frazione";
+            // 
+            // telefono
+            // 
+            this.telefono.Text = "Telefono";
+            // 
+            // fax
+            // 
+            this.fax.Text = "FAX";
+            // 
+            // indposel
+            // 
+            this.indposel.Text = "Ind. Pos. El.";
+            // 
+            // web
+            // 
+            this.web.Text = "Web";
+            // 
+            // ces
+            // 
+            this.ces.Text = "Codice Es.";
+            // 
+            // camere
+            // 
+            this.camere.Text = "Camere";
+            // 
+            // pls
+            // 
+            this.pls.Text = "P. Letto Standard";
+            // 
+            // pla
+            // 
+            this.pla.Text = "P. Letto Agg.";
+            // 
+            // ricercare
+            // 
+            this.ricercare.Location = new System.Drawing.Point(18, 197);
+            this.ricercare.Name = "ricercare";
+            this.ricercare.Size = new System.Drawing.Size(130, 23);
+            this.ricercare.TabIndex = 7;
+            this.ricercare.Text = "Ricerca";
+            this.ricercare.UseVisualStyleBackColor = true;
+            this.ricercare.Click += new System.EventHandler(this.ricercare_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ricercare);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.VisCampi);
             this.Controls.Add(this.AggRecord);
@@ -135,6 +257,25 @@
         private System.Windows.Forms.Button AggRecord;
         private System.Windows.Forms.Button VisCampi;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader comune;
+        private System.Windows.Forms.ColumnHeader provincia;
+        private System.Windows.Forms.ColumnHeader regione;
+        private System.Windows.Forms.ColumnHeader tipologia;
+        private System.Windows.Forms.ColumnHeader categoria;
+        private System.Windows.Forms.ColumnHeader denominazione;
+        private System.Windows.Forms.ColumnHeader indirizzo;
+        private System.Windows.Forms.ColumnHeader cap;
+        private System.Windows.Forms.ColumnHeader localita;
+        private System.Windows.Forms.ColumnHeader frazione;
+        private System.Windows.Forms.ColumnHeader telefono;
+        private System.Windows.Forms.ColumnHeader fax;
+        private System.Windows.Forms.ColumnHeader indposel;
+        private System.Windows.Forms.ColumnHeader web;
+        private System.Windows.Forms.ColumnHeader ces;
+        private System.Windows.Forms.ColumnHeader camere;
+        private System.Windows.Forms.ColumnHeader pls;
+        private System.Windows.Forms.ColumnHeader pla;
+        private System.Windows.Forms.Button ricercare;
     }
 }
 
