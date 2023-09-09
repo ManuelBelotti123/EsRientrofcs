@@ -107,7 +107,7 @@ namespace EsRientrofcs
             {
                 cvis[i] = int.Parse(Interaction.InputBox("Inserisci il numero:"));
             }
-            string[] arr = l.EstrapolaCampi(cvis[0], cvis[1], cvis[2]);
+            string[] arr = l.EstrapolaCampi(cvis[0], cvis[1], cvis[2], false);
             int j = 0;
             while (arr[j] != null)
             {
@@ -115,10 +115,24 @@ namespace EsRientrofcs
                 string[] div = arr[j].Split(';');
                 if (j != 0)
                 {
-                    Item.Text = div[0];
+                    if (cvis[0] == 0 || cvis[1] == 0 || cvis[2] == 0)
+                    {
+                        Item.Text = div[0];
+                    }
+                    else
+                    {
+                        Item.Text = " ";
+                    }
                     for (int i = 1; i < div.Length; i++)
                     {
-                        Item.SubItems.Add(div[i]);
+                        if (cvis[0] == i || cvis[1] == i || cvis[2] == i)
+                        {
+                            Item.SubItems.Add(div[i]);
+                        }
+                        else
+                        {
+                            Item.SubItems.Add(" ");
+                        }
                     }
                     listView1.Items.Add(Item);
                 }
@@ -262,6 +276,7 @@ namespace EsRientrofcs
 
         private void visualizzafile_Click(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
             LibreriaCS l = new LibreriaCS();
             int j = 0;
             string[] arr = l.Visualizza();

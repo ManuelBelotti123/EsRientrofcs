@@ -74,7 +74,7 @@
             // 
             // aggiusta
             // 
-            this.aggiusta.Location = new System.Drawing.Point(18, 47);
+            this.aggiusta.Location = new System.Drawing.Point(18, 56);
             this.aggiusta.Name = "aggiusta";
             this.aggiusta.Size = new System.Drawing.Size(130, 23);
             this.aggiusta.TabIndex = 1;
@@ -84,7 +84,7 @@
             // 
             // ConCampi
             // 
-            this.ConCampi.Location = new System.Drawing.Point(18, 77);
+            this.ConCampi.Location = new System.Drawing.Point(18, 86);
             this.ConCampi.Name = "ConCampi";
             this.ConCampi.Size = new System.Drawing.Size(130, 23);
             this.ConCampi.TabIndex = 2;
@@ -94,7 +94,7 @@
             // 
             // LMaxRec
             // 
-            this.LMaxRec.Location = new System.Drawing.Point(18, 107);
+            this.LMaxRec.Location = new System.Drawing.Point(18, 116);
             this.LMaxRec.Name = "LMaxRec";
             this.LMaxRec.Size = new System.Drawing.Size(130, 23);
             this.LMaxRec.TabIndex = 3;
@@ -104,7 +104,7 @@
             // 
             // AggRecord
             // 
-            this.AggRecord.Location = new System.Drawing.Point(18, 137);
+            this.AggRecord.Location = new System.Drawing.Point(18, 146);
             this.AggRecord.Name = "AggRecord";
             this.AggRecord.Size = new System.Drawing.Size(130, 23);
             this.AggRecord.TabIndex = 4;
@@ -114,7 +114,7 @@
             // 
             // VisCampi
             // 
-            this.VisCampi.Location = new System.Drawing.Point(18, 167);
+            this.VisCampi.Location = new System.Drawing.Point(18, 176);
             this.VisCampi.Name = "VisCampi";
             this.VisCampi.Size = new System.Drawing.Size(130, 23);
             this.VisCampi.TabIndex = 5;
@@ -145,9 +145,9 @@
             this.pla,
             this.mval});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(184, 63);
+            this.listView1.Location = new System.Drawing.Point(184, 56);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(595, 362);
+            this.listView1.Size = new System.Drawing.Size(595, 372);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -226,7 +226,7 @@
             // 
             // ricercare
             // 
-            this.ricercare.Location = new System.Drawing.Point(18, 197);
+            this.ricercare.Location = new System.Drawing.Point(18, 206);
             this.ricercare.Name = "ricercare";
             this.ricercare.Size = new System.Drawing.Size(130, 23);
             this.ricercare.TabIndex = 7;
@@ -236,7 +236,7 @@
             // 
             // mod
             // 
-            this.mod.Location = new System.Drawing.Point(18, 227);
+            this.mod.Location = new System.Drawing.Point(18, 236);
             this.mod.Name = "mod";
             this.mod.Size = new System.Drawing.Size(130, 23);
             this.mod.TabIndex = 8;
@@ -246,7 +246,7 @@
             // 
             // canclogica
             // 
-            this.canclogica.Location = new System.Drawing.Point(18, 257);
+            this.canclogica.Location = new System.Drawing.Point(18, 266);
             this.canclogica.Name = "canclogica";
             this.canclogica.Size = new System.Drawing.Size(130, 23);
             this.canclogica.TabIndex = 9;
@@ -256,7 +256,7 @@
             // 
             // reclogico
             // 
-            this.reclogico.Location = new System.Drawing.Point(18, 286);
+            this.reclogico.Location = new System.Drawing.Point(18, 295);
             this.reclogico.Name = "reclogico";
             this.reclogico.Size = new System.Drawing.Size(130, 23);
             this.reclogico.TabIndex = 10;
@@ -266,7 +266,7 @@
             // 
             // ricompattafile
             // 
-            this.ricompattafile.Location = new System.Drawing.Point(18, 315);
+            this.ricompattafile.Location = new System.Drawing.Point(18, 324);
             this.ricompattafile.Name = "ricompattafile";
             this.ricompattafile.Size = new System.Drawing.Size(130, 23);
             this.ricompattafile.TabIndex = 11;
@@ -276,7 +276,7 @@
             // 
             // visualizzafile
             // 
-            this.visualizzafile.Location = new System.Drawing.Point(18, 344);
+            this.visualizzafile.Location = new System.Drawing.Point(18, 353);
             this.visualizzafile.Name = "visualizzafile";
             this.visualizzafile.Size = new System.Drawing.Size(130, 23);
             this.visualizzafile.TabIndex = 12;
