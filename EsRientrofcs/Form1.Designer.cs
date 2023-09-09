@@ -58,6 +58,8 @@
             this.canclogica = new System.Windows.Forms.Button();
             this.reclogico = new System.Windows.Forms.Button();
             this.ricompattafile = new System.Windows.Forms.Button();
+            this.visualizzafile = new System.Windows.Forms.Button();
+            this.mval = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -140,7 +142,8 @@
             this.ces,
             this.camere,
             this.pls,
-            this.pla});
+            this.pla,
+            this.mval});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(184, 63);
             this.listView1.Name = "listView1";
@@ -271,11 +274,26 @@
             this.ricompattafile.UseVisualStyleBackColor = true;
             this.ricompattafile.Click += new System.EventHandler(this.ricompattafile_Click);
             // 
+            // visualizzafile
+            // 
+            this.visualizzafile.Location = new System.Drawing.Point(18, 344);
+            this.visualizzafile.Name = "visualizzafile";
+            this.visualizzafile.Size = new System.Drawing.Size(130, 23);
+            this.visualizzafile.TabIndex = 12;
+            this.visualizzafile.Text = "Visualizza";
+            this.visualizzafile.UseVisualStyleBackColor = true;
+            this.visualizzafile.Click += new System.EventHandler(this.visualizzafile_Click);
+            // 
+            // mval
+            // 
+            this.mval.Text = "MioValore";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.visualizzafile);
             this.Controls.Add(this.ricompattafile);
             this.Controls.Add(this.reclogico);
             this.Controls.Add(this.canclogica);
@@ -328,6 +346,8 @@
         private System.Windows.Forms.Button canclogica;
         private System.Windows.Forms.Button reclogico;
         private System.Windows.Forms.Button ricompattafile;
+        private System.Windows.Forms.Button visualizzafile;
+        private System.Windows.Forms.ColumnHeader mval;
     }
 }
 

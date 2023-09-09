@@ -116,7 +116,7 @@ namespace EsRientrofcs
                 if (j != 0)
                 {
                     Item.Text = div[0];
-                    for (int i = 1; i < l.ContaCampi(); i++)
+                    for (int i = 1; i < div.Length; i++)
                     {
                         Item.SubItems.Add(div[i]);
                     }
@@ -258,6 +258,28 @@ namespace EsRientrofcs
             LibreriaCS l = new LibreriaCS();
             l.Ricompatta();
             MessageBox.Show("Operazione completata", "Avviso");
+        }
+
+        private void visualizzafile_Click(object sender, EventArgs e)
+        {
+            LibreriaCS l = new LibreriaCS();
+            int j = 0;
+            string[] arr = l.Visualizza();
+            while (arr[j] != null)
+            {
+                ListViewItem Item = new ListViewItem();
+                string[] div = arr[j].Split(';');
+                if (j != 0)
+                {
+                    Item.Text = div[0];
+                    for (int i = 1; i < div.Length; i++)
+                    {
+                        Item.SubItems.Add(div[i]);
+                    }
+                    listView1.Items.Add(Item);
+                }
+                j++;
+            }
         }
     }
 }
