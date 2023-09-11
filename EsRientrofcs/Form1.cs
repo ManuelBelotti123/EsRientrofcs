@@ -43,257 +43,327 @@ namespace EsRientrofcs
         private void ConCampi_Click(object sender, EventArgs e)
         {
             LibreriaCS l = new LibreriaCS();
-            MessageBox.Show("I campi di questo file sono " + l.ContaCampi() + ".", "Numero dei campi", MessageBoxButtons.OK);
+            if (l.ContrAgg())
+            {
+                MessageBox.Show("I campi di questo file sono " + l.ContaCampi() + ".", "Numero dei campi", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
+            }
         }
 
         private void LMaxRec_Click(object sender, EventArgs e)
         {
             LibreriaCS l = new LibreriaCS();
-            MessageBox.Show("La lunghezza massima dei record presenti è " + l.LungMaxRec() + " caratteri.", "Lunghezza Massima Record", MessageBoxButtons.OK);
+            if (l.ContrAgg())
+            {
+                MessageBox.Show("La lunghezza massima dei record presenti è " + l.LungMaxRec() + " caratteri.", "Lunghezza Massima Record", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
+            }
         }
 
         private void AggRecord_Click(object sender, EventArgs e)
         {
             LibreriaCS l = new LibreriaCS();
-            string[] div = new string[18];
-            MessageBox.Show("Inserisci i campi del nuovo record che vuoi inserire:", "Aggiunta di un nuovo record");
-            div[0] = Interaction.InputBox("Inserisci il Comune:", "Nuovo record");
-            div[1] = Interaction.InputBox("Inserisci la Provincia:", "Nuovo record");
-            div[2] = Interaction.InputBox("Inserisci la Regione:", "Nuovo record");
-            div[3] = Interaction.InputBox("Inserisci la Tipologia:", "Nuovo record");
-            div[4] = Interaction.InputBox("Inserisci la Categoria:", "Nuovo record");
-            div[5] = Interaction.InputBox("Inserisci la Denominazione:", "Nuovo record");
-            div[6] = Interaction.InputBox("Inserisci l'Indirizzo:", "Nuovo record");
-            div[7] = Interaction.InputBox("Inserisci il CAP:", "Nuovo record");
-            div[8] = Interaction.InputBox("Inserisci la Località:", "Nuovo record");
-            div[9] = Interaction.InputBox("Inserisci la Frazione:", "Nuovo record");
-            div[10] = Interaction.InputBox("Inserisci il Telefono:", "Nuovo record");
-            div[11] = Interaction.InputBox("Inserisci il FAX:", "Nuovo record");
-            div[12] = Interaction.InputBox("Inserisci l'Indirizzo posta elettronica:", "Nuovo record");
-            div[13] = Interaction.InputBox("Inserisci il Sito Internet:", "Nuovo record");
-            div[14] = Interaction.InputBox("Inserisci il Codice esercizio:", "Nuovo record");
-            div[15] = Interaction.InputBox("Inserisci il numero di Camere:", "Nuovo record");
-            div[16] = Interaction.InputBox("Inserisci i Posti letto standard:", "Nuovo record");
-            div[17] = Interaction.InputBox("Inserisci i Posti letto aggiuntivi:", "Nuovo record");
-            l.AggRec(div);
-            MessageBox.Show("Record aggiunto correttamente", "Avviso");
+            if (l.ContrAgg())
+            {
+                string[] div = new string[18];
+                MessageBox.Show("Inserisci i campi del nuovo record che vuoi inserire:", "Aggiunta di un nuovo record");
+                div[0] = Interaction.InputBox("Inserisci il Comune:", "Nuovo record");
+                div[1] = Interaction.InputBox("Inserisci la Provincia:", "Nuovo record");
+                div[2] = Interaction.InputBox("Inserisci la Regione:", "Nuovo record");
+                div[3] = Interaction.InputBox("Inserisci la Tipologia:", "Nuovo record");
+                div[4] = Interaction.InputBox("Inserisci la Categoria:", "Nuovo record");
+                div[5] = Interaction.InputBox("Inserisci la Denominazione:", "Nuovo record");
+                div[6] = Interaction.InputBox("Inserisci l'Indirizzo:", "Nuovo record");
+                div[7] = Interaction.InputBox("Inserisci il CAP:", "Nuovo record");
+                div[8] = Interaction.InputBox("Inserisci la Località:", "Nuovo record");
+                div[9] = Interaction.InputBox("Inserisci la Frazione:", "Nuovo record");
+                div[10] = Interaction.InputBox("Inserisci il Telefono:", "Nuovo record");
+                div[11] = Interaction.InputBox("Inserisci il FAX:", "Nuovo record");
+                div[12] = Interaction.InputBox("Inserisci l'Indirizzo posta elettronica:", "Nuovo record");
+                div[13] = Interaction.InputBox("Inserisci il Sito Internet:", "Nuovo record");
+                div[14] = Interaction.InputBox("Inserisci il Codice esercizio:", "Nuovo record");
+                div[15] = Interaction.InputBox("Inserisci il numero di Camere:", "Nuovo record");
+                div[16] = Interaction.InputBox("Inserisci i Posti letto standard:", "Nuovo record");
+                div[17] = Interaction.InputBox("Inserisci i Posti letto aggiuntivi:", "Nuovo record");
+                l.AggRec(div);
+                MessageBox.Show("Record aggiunto correttamente", "Avviso");
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
+            }
         }
 
         private void VisCampi_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
             LibreriaCS l = new LibreriaCS();
-            int[] cvis = new int[3];
-            MessageBox.Show("Scegli tre di questi campi, indicandone il numero corrispondente" +
-                "\n0. Comune" +
-                "\n1. Provincia" +
-                "\n2. Regione" +
-                "\n3. Tipologia" +
-                "\n4. Categoria(Stelle)" +
-                "\n5. Denominazione" +
-                "\n6. Indirizzo" +
-                "\n7. CAP" +
-                "\n8. Località" +
-                "\n9. Frazione" +
-                "\n10. Telefono" +
-                "\n11. FAX" +
-                "\n12. Indirizzo Posta Elettronica" +
-                "\n13. Sito Internet" +
-                "\n14. Codice esercizio" +
-                "\n15. Camere" +
-                "\n16. Posti letto standard" +
-                "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
-            for (int i = 0; i < cvis.Length; i++)
+            if (l.ContrAgg())
             {
-                cvis[i] = int.Parse(Interaction.InputBox("Inserisci il numero:"));
-            }
-            string[] arr = l.EstrapolaCampi(cvis[0], cvis[1], cvis[2], false);
-            int j = 0;
-            while (arr[j] != null)
-            {
-                ListViewItem Item = new ListViewItem();
-                string[] div = arr[j].Split(';');
-                if (j != 0)
+                int[] cvis = new int[3];
+                MessageBox.Show("Scegli tre di questi campi, indicandone il numero corrispondente" +
+                    "\n0. Comune" +
+                    "\n1. Provincia" +
+                    "\n2. Regione" +
+                    "\n3. Tipologia" +
+                    "\n4. Categoria(Stelle)" +
+                    "\n5. Denominazione" +
+                    "\n6. Indirizzo" +
+                    "\n7. CAP" +
+                    "\n8. Località" +
+                    "\n9. Frazione" +
+                    "\n10. Telefono" +
+                    "\n11. FAX" +
+                    "\n12. Indirizzo Posta Elettronica" +
+                    "\n13. Sito Internet" +
+                    "\n14. Codice esercizio" +
+                    "\n15. Camere" +
+                    "\n16. Posti letto standard" +
+                    "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+                for (int i = 0; i < cvis.Length; i++)
                 {
-                    if (cvis[0] == 0 || cvis[1] == 0 || cvis[2] == 0)
+                    cvis[i] = int.Parse(Interaction.InputBox("Inserisci il numero:"));
+                }
+                string[] arr = l.EstrapolaCampi(cvis[0], cvis[1], cvis[2], false);
+                int j = 0;
+                while (arr[j] != null)
+                {
+                    ListViewItem Item = new ListViewItem();
+                    string[] div = arr[j].Split(';');
+                    if (j != 0)
                     {
-                        Item.Text = div[0];
-                    }
-                    else
-                    {
-                        Item.Text = " ";
-                    }
-                    for (int i = 1; i < div.Length; i++)
-                    {
-                        if (cvis[0] == i || cvis[1] == i || cvis[2] == i)
+                        if (cvis[0] == 0 || cvis[1] == 0 || cvis[2] == 0)
                         {
-                            Item.SubItems.Add(div[i]);
+                            Item.Text = div[0];
                         }
                         else
                         {
-                            Item.SubItems.Add(" ");
+                            Item.Text = " ";
                         }
+                        for (int i = 1; i < div.Length; i++)
+                        {
+                            if (cvis[0] == i || cvis[1] == i || cvis[2] == i)
+                            {
+                                Item.SubItems.Add(div[i]);
+                            }
+                            else
+                            {
+                                Item.SubItems.Add(" ");
+                            }
+                        }
+                        listView1.Items.Add(Item);
                     }
-                    listView1.Items.Add(Item);
+                    j++;
                 }
-                j++;
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
             }
         }
 
         private void ricercare_Click(object sender, EventArgs e)
         {
             LibreriaCS l = new LibreriaCS();
-            string ricerca = Interaction.InputBox("Inserisci il termine che vuoi ricercare");
-            MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
-                        "\n0. Comune" +
-                        "\n1. Provincia" +
-                        "\n2. Regione" +
-                        "\n3. Tipologia" +
-                        "\n4. Categoria(Stelle)" +
-                        "\n5. Denominazione" +
-                        "\n6. Indirizzo" +
-                        "\n7. CAP" +
-                        "\n8. Località" +
-                        "\n9. Frazione" +
-                        "\n10. Telefono" +
-                        "\n11. FAX" +
-                        "\n12. Indirizzo Posta Elettronica" +
-                        "\n13. Sito Internet" +
-                        "\n14. Codice esercizio" +
-                        "\n15. Camere" +
-                        "\n16. Posti letto standard" +
-                        "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
-            int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
-            string[] ric = l.Ricerca(campo, ricerca);
-            int j = 0;
-            while (ric[j] != null)
+            if (l.ContrAgg())
             {
-                ListViewItem Item = new ListViewItem();
-                string[] div = ric[j].Split(';');
-                Item.Text = div[0];
-                for (int i = 1; i < div.Length; i++)
+                string ricerca = Interaction.InputBox("Inserisci il termine che vuoi ricercare");
+                MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
+                            "\n0. Comune" +
+                            "\n1. Provincia" +
+                            "\n2. Regione" +
+                            "\n3. Tipologia" +
+                            "\n4. Categoria(Stelle)" +
+                            "\n5. Denominazione" +
+                            "\n6. Indirizzo" +
+                            "\n7. CAP" +
+                            "\n8. Località" +
+                            "\n9. Frazione" +
+                            "\n10. Telefono" +
+                            "\n11. FAX" +
+                            "\n12. Indirizzo Posta Elettronica" +
+                            "\n13. Sito Internet" +
+                            "\n14. Codice esercizio" +
+                            "\n15. Camere" +
+                            "\n16. Posti letto standard" +
+                            "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+                int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
+                string[] ric = l.Ricerca(campo, ricerca);
+                int j = 0;
+                while (ric[j] != null)
                 {
-                    Item.SubItems.Add(div[i]);
-                }
-                listView1.Items.Add(Item);
-                j++;
-            }
-        }
-
-        private void mod_Click(object sender, EventArgs e)
-        {
-            LibreriaCS l = new LibreriaCS();
-            string ricerca = Interaction.InputBox("Inserisci il termine che vuoi modificare");
-            string modifica = Interaction.InputBox("Inserisci la modifica");
-            MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
-                        "\n0. Comune" +
-                        "\n1. Provincia" +
-                        "\n2. Regione" +
-                        "\n3. Tipologia" +
-                        "\n4. Categoria(Stelle)" +
-                        "\n5. Denominazione" +
-                        "\n6. Indirizzo" +
-                        "\n7. CAP" +
-                        "\n8. Località" +
-                        "\n9. Frazione" +
-                        "\n10. Telefono" +
-                        "\n11. FAX" +
-                        "\n12. Indirizzo Posta Elettronica" +
-                        "\n13. Sito Internet" +
-                        "\n14. Codice esercizio" +
-                        "\n15. Camere" +
-                        "\n16. Posti letto standard" +
-                        "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
-            int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
-            l.ModificaCampo(campo, ricerca, modifica);
-            MessageBox.Show("Operazione Completata", "Avviso");
-        }
-
-        private void canclogica_Click(object sender, EventArgs e)
-        {
-            bool cor = false;
-            LibreriaCS l = new LibreriaCS();
-            string ricerca = Interaction.InputBox("Inserisci il termine che vuoi cancellare logicamente");
-            MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
-                        "\n0. Comune" +
-                        "\n1. Provincia" +
-                        "\n2. Regione" +
-                        "\n3. Tipologia" +
-                        "\n4. Categoria(Stelle)" +
-                        "\n5. Denominazione" +
-                        "\n6. Indirizzo" +
-                        "\n7. CAP" +
-                        "\n8. Località" +
-                        "\n9. Frazione" +
-                        "\n10. Telefono" +
-                        "\n11. FAX" +
-                        "\n12. Indirizzo Posta Elettronica" +
-                        "\n13. Sito Internet" +
-                        "\n14. Codice esercizio" +
-                        "\n15. Camere" +
-                        "\n16. Posti letto standard" +
-                        "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
-            int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
-            l.CancRecLogica(campo, ricerca, cor);
-            MessageBox.Show("Operazione completata", "Avviso");
-        }
-
-        private void reclogico_Click(object sender, EventArgs e)
-        {
-            bool cor = true;
-            LibreriaCS l = new LibreriaCS();
-            string ricerca = Interaction.InputBox("Inserisci il termine che vuoi cancellare logicamente");
-            MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
-                        "\n0. Comune" +
-                        "\n1. Provincia" +
-                        "\n2. Regione" +
-                        "\n3. Tipologia" +
-                        "\n4. Categoria(Stelle)" +
-                        "\n5. Denominazione" +
-                        "\n6. Indirizzo" +
-                        "\n7. CAP" +
-                        "\n8. Località" +
-                        "\n9. Frazione" +
-                        "\n10. Telefono" +
-                        "\n11. FAX" +
-                        "\n12. Indirizzo Posta Elettronica" +
-                        "\n13. Sito Internet" +
-                        "\n14. Codice esercizio" +
-                        "\n15. Camere" +
-                        "\n16. Posti letto standard" +
-                        "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
-            int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
-            l.CancRecLogica(campo, ricerca, cor);
-            MessageBox.Show("Operazione completata", "Avviso");
-        }
-
-        private void ricompattafile_Click(object sender, EventArgs e)
-        {
-            LibreriaCS l = new LibreriaCS();
-            l.Ricompatta();
-            MessageBox.Show("Operazione completata", "Avviso");
-        }
-
-        private void visualizzafile_Click(object sender, EventArgs e)
-        {
-            listView1.Items.Clear();
-            LibreriaCS l = new LibreriaCS();
-            int j = 0;
-            string[] arr = l.Visualizza();
-            while (arr[j] != null)
-            {
-                ListViewItem Item = new ListViewItem();
-                string[] div = arr[j].Split(';');
-                if (j != 0)
-                {
+                    ListViewItem Item = new ListViewItem();
+                    string[] div = ric[j].Split(';');
                     Item.Text = div[0];
                     for (int i = 1; i < div.Length; i++)
                     {
                         Item.SubItems.Add(div[i]);
                     }
                     listView1.Items.Add(Item);
+                    j++;
                 }
-                j++;
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
+            }
+        }
+
+        private void mod_Click(object sender, EventArgs e)
+        {
+            LibreriaCS l = new LibreriaCS();
+            if (l.ContrAgg())
+            {
+                string ricerca = Interaction.InputBox("Inserisci il termine che vuoi modificare");
+                string modifica = Interaction.InputBox("Inserisci la modifica");
+                MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
+                            "\n0. Comune" +
+                            "\n1. Provincia" +
+                            "\n2. Regione" +
+                            "\n3. Tipologia" +
+                            "\n4. Categoria(Stelle)" +
+                            "\n5. Denominazione" +
+                            "\n6. Indirizzo" +
+                            "\n7. CAP" +
+                            "\n8. Località" +
+                            "\n9. Frazione" +
+                            "\n10. Telefono" +
+                            "\n11. FAX" +
+                            "\n12. Indirizzo Posta Elettronica" +
+                            "\n13. Sito Internet" +
+                            "\n14. Codice esercizio" +
+                            "\n15. Camere" +
+                            "\n16. Posti letto standard" +
+                            "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+                int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
+                l.ModificaCampo(campo, ricerca, modifica);
+                MessageBox.Show("Operazione Completata", "Avviso");
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
+            }
+        }
+
+        private void canclogica_Click(object sender, EventArgs e)
+        {
+            bool cor = false;
+            LibreriaCS l = new LibreriaCS();
+            if (l.ContrAgg())
+            {
+                string ricerca = Interaction.InputBox("Inserisci il termine che vuoi cancellare logicamente");
+                MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
+                            "\n0. Comune" +
+                            "\n1. Provincia" +
+                            "\n2. Regione" +
+                            "\n3. Tipologia" +
+                            "\n4. Categoria(Stelle)" +
+                            "\n5. Denominazione" +
+                            "\n6. Indirizzo" +
+                            "\n7. CAP" +
+                            "\n8. Località" +
+                            "\n9. Frazione" +
+                            "\n10. Telefono" +
+                            "\n11. FAX" +
+                            "\n12. Indirizzo Posta Elettronica" +
+                            "\n13. Sito Internet" +
+                            "\n14. Codice esercizio" +
+                            "\n15. Camere" +
+                            "\n16. Posti letto standard" +
+                            "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+                int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
+                l.CancRecLogica(campo, ricerca, cor);
+                MessageBox.Show("Operazione completata", "Avviso");
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
+            }
+        }
+
+        private void reclogico_Click(object sender, EventArgs e)
+        {
+            bool cor = true;
+            LibreriaCS l = new LibreriaCS();
+            if (l.ContrAgg())
+            {
+                string ricerca = Interaction.InputBox("Inserisci il termine che vuoi cancellare logicamente");
+                MessageBox.Show("Scegli il campo in cui vuoi cercarlo, indicandone il numero corrispondente" +
+                            "\n0. Comune" +
+                            "\n1. Provincia" +
+                            "\n2. Regione" +
+                            "\n3. Tipologia" +
+                            "\n4. Categoria(Stelle)" +
+                            "\n5. Denominazione" +
+                            "\n6. Indirizzo" +
+                            "\n7. CAP" +
+                            "\n8. Località" +
+                            "\n9. Frazione" +
+                            "\n10. Telefono" +
+                            "\n11. FAX" +
+                            "\n12. Indirizzo Posta Elettronica" +
+                            "\n13. Sito Internet" +
+                            "\n14. Codice esercizio" +
+                            "\n15. Camere" +
+                            "\n16. Posti letto standard" +
+                            "\n17. Posti letto aggiuntivi", "Visualizza 3 Campi", MessageBoxButtons.OKCancel);
+                int campo = int.Parse(Interaction.InputBox("Inserisci il numero"));
+                l.CancRecLogica(campo, ricerca, cor);
+                MessageBox.Show("Operazione completata", "Avviso");
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
+            }
+        }
+
+        private void ricompattafile_Click(object sender, EventArgs e)
+        {
+            LibreriaCS l = new LibreriaCS();
+            if (l.ContrAgg())
+            {
+                l.Ricompatta();
+                MessageBox.Show("Operazione completata", "Avviso");
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
+            }
+        }
+
+        private void visualizzafile_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            LibreriaCS l = new LibreriaCS();
+            if (l.ContrAgg())
+            {
+                int j = 0;
+                string[] arr = l.Visualizza();
+                while (arr[j] != null)
+                {
+                    ListViewItem Item = new ListViewItem();
+                    string[] div = arr[j].Split(';');
+                    if (j != 0)
+                    {
+                        Item.Text = div[0];
+                        for (int i = 1; i < div.Length; i++)
+                        {
+                            Item.SubItems.Add(div[i]);
+                        }
+                        listView1.Items.Add(Item);
+                    }
+                    j++;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Effettuare prima l'aggiustamento del file per continuare", "Avviso", MessageBoxButtons.OK);
             }
         }
     }
